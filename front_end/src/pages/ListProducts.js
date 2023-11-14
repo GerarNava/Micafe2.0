@@ -33,16 +33,16 @@ export const ListProducts = () => {
           alert('Error en el registro. Por favor, inténtalo de nuevo.');
         }
       } catch (error) {
-        console.error('Error en la solicitud:', error);
+        //console.error('Error en la solicitud:', error);
         alert('Ocurrió un error en el registro. Por favor, inténtalo de nuevo más tarde.');
       }
       
       alert('Registro exitoso');
     } 
     // Aquí puedes realizar alguna acción con los datos ingresados, como enviarlos a un servidor o guardarlos en el estado de tu aplicación
-      console.log('Precio:', precio);
-    console.log('Imagen:', imagen);
-    console.log('Nombre del Producto:', nombre);
+    //console.log('Precio:', precio);
+    //console.log('Imagen:', imagen);
+    //console.log('Nombre del Producto:', nombre);
   };
 
   return (

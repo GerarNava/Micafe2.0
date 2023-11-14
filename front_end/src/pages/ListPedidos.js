@@ -15,7 +15,7 @@ const ListPedidos = () => {
 
     // Si no hay un ID de usuario, no intentes cargar los pedidos
     if (!clienteId) {
-      console.error('ID de usuario no disponible.');
+     // console.error('ID de usuario no disponible.');
       return;
     }
 

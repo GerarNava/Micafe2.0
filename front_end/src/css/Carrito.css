@@ -82,3 +82,35 @@
   .separador {
     height: 20px; /* Ajusta la altura según tus necesidades */
   }
+  /* Carrito.css */
+
+.form-container {
+  margin-bottom: 20px;
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.label-input label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.label-input input,
+.label-input textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carrito-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Resto de tus estilos... */

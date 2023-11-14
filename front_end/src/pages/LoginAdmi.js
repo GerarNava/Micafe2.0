@@ -39,7 +39,7 @@ const LoginAdmi = () => {
         }
       } catch (error) {
         // Manejar errores de conexión o servidor
-        console.error('Error en la solicitud:', error);
+       // console.error('Error en la solicitud:', error);
         alert('Hubo un error en la autenticación. Inténtalo de nuevo más tarde.');
       }
     } else {

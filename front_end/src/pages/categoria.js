@@ -29,7 +29,7 @@ const Categoria = () => {
         alert('Error en el registro. Por favor, inténtalo de nuevo.');
       }
     } catch (error) {
-      console.error('Error en la solicitud:', error);
+      //console.error('Error en la solicitud:', error);
       alert('Ocurrió un error en el registro. Por favor, inténtalo de nuevo más tarde.');
     }
   };
@@ -61,14 +61,14 @@ const Categoria = () => {
         alert('Error al eliminar la categoría. Por favor, inténtalo de nuevo.');
       }
     } catch (error) {
-      console.error('Error en la solicitud:', error);
+     // console.error('Error en la solicitud:', error);
       alert('Ocurrió un error al eliminar la categoría. Por favor, inténtalo de nuevo más tarde.');
     }
   };
 
   const handleEditarCategoria = (id) => {
     // Lógica para editar la categoría, por ejemplo, redireccionar a una página de edición
-    console.log(`Editar categoría con ID: ${id}`);
+   // console.log(`Editar categoría con ID: ${id}`);
   };
 
   return (

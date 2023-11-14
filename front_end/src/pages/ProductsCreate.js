@@ -6,7 +6,7 @@ const ProductsCreate = () => {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState('');
   const [categories, setCategories] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
@@ -41,7 +41,7 @@ const ProductsCreate = () => {
     formData.append('image', image);
 
     try {
-      const response = await fetch('http://localhost:8000/api/products/create/', {
+      const response = await fetch('http://localhost:8000/api/products/create', {
         method: 'POST',
         body: formData,
       });
@@ -130,9 +130,15 @@ const ProductsCreate = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="imagen" className="form-label"> URL Imagen</label>
+            <label htmlFor="imagen" className="form-label">URL Imagen</label>
             <br />
-            <textarea type="file" className="form-control" id="imagen" onChange={(e) => setImage(e.target.value)} />
+            <input
+              type="text"
+              className="form-control"
+              id="imagen"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+            />
           </div>
 
           <div className="d-flex justify-content-between">
@@ -140,8 +146,6 @@ const ProductsCreate = () => {
             <button type="button" className="btn btn-secondary">Cancelar</button>
           </div>
         </form>
-
-        {/* Agrega aquí el código para mostrar la tabla de categorías */}
       </div>
     </div>
   );

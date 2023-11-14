@@ -11,6 +11,8 @@ export const Carrito = ({ carrito, setCarrito }) => {
   const { user } = useAuth();
   const clienteId = user && user.id;
 
+  const [nombreCliente, setNombreCliente] = useState(''); // Nuevo campo para el nombre
+  const [observaciones, setObservaciones] = useState(''); // Nuevo campo para observaciones
   const [carritoLocal, setCarritoLocal] = useState(carrito);
   const [total, setTotal] = useState(
     Number(
@@ -36,18 +38,26 @@ export const Carrito = ({ carrito, setCarrito }) => {
   }, []);
 
   const enviarPedido = async () => {
+    // Validación del nombre
+    if (!nombreCliente) {
+      alert('Por favor, ingrese su nombre antes de enviar el pedido.');
+      return;
+    }
+
     const fechaActual = new Date().toISOString();
 
     const formData = new FormData();
     formData.append('n_order', numeroOrden);
     formData.append('user', clienteId);
+    formData.append('name', nombreCliente); // Nuevo campo para el nombre
+    formData.append('observations', observaciones); // Nuevo campo para observaciones
     formData.append('description', carritoLocal.map((producto) => `${producto.nombre} (${producto.cantidad})`).join(', '));
     formData.append('quantity', '1');
     formData.append('total_price', total);
     formData.append('created_at', fechaActual);
 
     // Imprime los datos antes de hacer la solicitud
-    console.log('Datos a enviar:', Object.fromEntries(formData.entries()));
+    //console.log('Datos a enviar:', Object.fromEntries(formData.entries()));
 
     try {
       const response = await fetch('http://localhost:8000/api/orders/create/', {
@@ -69,6 +79,8 @@ export const Carrito = ({ carrito, setCarrito }) => {
     setTotal(0);
     setNumeroOrden(null);
     setCarritoLocal([]);
+    setNombreCliente(''); // Limpiar el campo después de enviar el pedido
+    setObservaciones(''); // Limpiar el campo después de enviar el pedido
   };
 
   const cancelarPedido = () => {
@@ -76,6 +88,8 @@ export const Carrito = ({ carrito, setCarrito }) => {
     setTotal(0);
     setNumeroOrden(null);
     setCarritoLocal([]);
+    setNombreCliente(''); // Limpiar el campo al cancelar el pedido
+    setObservaciones(''); // Limpiar el campo al cancelar el pedido
     console.log('Pedido cancelado');
   };
 
@@ -98,6 +112,26 @@ export const Carrito = ({ carrito, setCarrito }) => {
       </nav>
       <div className="carrito-container">
         <h2>Carrito de Compras</h2>
+        <div className="form-container">
+          <div className="label-input">
+            <label htmlFor="nombreCliente">Nombre Cliente:</label>
+            <input
+              type="text"
+              id="nombreCliente"
+              value={nombreCliente}
+              onChange={(e) => setNombreCliente(e.target.value)}
+              required
+            />
+          </div>
+          <div className="label-input">
+            <label htmlFor="observaciones">Observaciones:</label>
+            <textarea
+              id="observaciones"
+              value={observaciones}
+              onChange={(e) => setObservaciones(e.target.value)}
+            />
+          </div>
+        </div>
         <table className="carrito-table">
           <thead>
             <tr>

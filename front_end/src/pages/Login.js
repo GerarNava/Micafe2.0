@@ -17,7 +17,7 @@ const Login = () => {
         const user = await login(email, password);
 
         alert('Inicio de sesión exitoso');
-        console.log('Usuario autenticado:', user);
+       // console.log('Usuario autenticado:', user);
         navigate('/home');
       } catch (error) {
         console.error('Error durante el inicio de sesión:', error.message);

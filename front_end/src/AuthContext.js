@@ -35,8 +35,8 @@ export const AuthProvider = ({ children }) => {
         setUser(loggedInUser);
         localStorage.setItem('user', JSON.stringify(loggedInUser));
 
-        console.log('Token:', data.jwt);
-        console.log('ID del usuario:', loggedInUser.id);
+        //console.log('Token:', data.jwt);
+        //console.log('ID del usuario:', loggedInUser.id);
 
         return loggedInUser;
       } else {
