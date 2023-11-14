@@ -24,13 +24,13 @@ const Brother = ({ addToCart }) => {
       <nav className="navbar">
         <div className="center-links">
           <div>
-            <Link to="/perfil">
+            <Link to="/listPedidos">
               <img src={perfil} alt="perfil" className="icon" />
             </Link>
             <Link to="/carrito">
               <img src={carrito} alt="carrito" className="icon" />
             </Link>
-            <Link to="/brother">
+            <Link to="/home">
               <img src={regresar} alt="regresar" className="icon" />
             </Link>
           </div>

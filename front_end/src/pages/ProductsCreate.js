@@ -41,7 +41,7 @@ const ProductsCreate = () => {
     formData.append('image', image);
 
     try {
-      const response = await fetch('http://localhost:8000/api/products/create', {
+      const response = await fetch('http://localhost:8000/api/products/create/', {
         method: 'POST',
         body: formData,
       });

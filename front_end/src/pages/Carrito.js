@@ -10,7 +10,7 @@ import '../css/Rome.css';
 export const Carrito = ({ carrito, setCarrito }) => {
   const { user } = useAuth();
   const clienteId = user && user.id;
-  // Estado local para el carrito, el total y el número de orden
+
   const [carritoLocal, setCarritoLocal] = useState(carrito);
   const [total, setTotal] = useState(
     Number(
@@ -20,64 +20,62 @@ export const Carrito = ({ carrito, setCarrito }) => {
   const [numeroOrden, setNumeroOrden] = useState(null);
 
   useEffect(() => {
-    // Lógica para obtener el número de orden actual desde la API
     const obtenerNumeroOrden = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/orders');
+        const response = await fetch('http://localhost:8000/api/orders/');
         const data = await response.json();
-
-        // Suponiendo que la respuesta tiene un array de pedidos y se utiliza el último elemento
         const ultimoPedido = data[data.length - 1];
-        const numeroOrdenActual = ultimoPedido && ultimoPedido.n_orden;
-        console.log('IdUsuario',user.id);
-        // Incrementar el número de orden antes de establecerlo
-        setNumeroOrden(numeroOrdenActual + 1);
+        const numeroOrdenActual = ultimoPedido && ultimoPedido.n_order;
+        setNumeroOrden(numeroOrdenActual ? parseInt(numeroOrdenActual) + 1 : 1);
       } catch (error) {
         console.error('Error al obtener el número de orden:', error);
       }
-      
     };
 
     obtenerNumeroOrden();
-  }, []); // Se ejecuta solo una vez al montar el componente
+  }, []);
 
   const enviarPedido = async () => {
-    
+    const fechaActual = new Date().toISOString();
 
-    const pedido = {
-      description: carritoLocal.map((producto) => `${producto.nombre} (${producto.cantidad})`).join(', '),
-      quantity: '1',
-      total_price: total,
-      user_id: clienteId,
-      numero_orden: numeroOrden, // Incluye el número de orden en el objeto pedido
-    };
+    const formData = new FormData();
+    formData.append('n_order', numeroOrden);
+    formData.append('user', clienteId);
+    formData.append('description', carritoLocal.map((producto) => `${producto.nombre} (${producto.cantidad})`).join(', '));
+    formData.append('quantity', '1');
+    formData.append('total_price', total);
+    formData.append('created_at', fechaActual);
+
+    // Imprime los datos antes de hacer la solicitud
+    console.log('Datos a enviar:', Object.fromEntries(formData.entries()));
 
     try {
-      const response = await fetch('http://localhost:8000/api/orders/create', {
+      const response = await fetch('http://localhost:8000/api/orders/create/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(pedido),
+        body: formData,
       });
 
       if (response.ok) {
         console.log('Pedido enviado con éxito');
+        // Puedes realizar acciones adicionales después de enviar el pedido si es necesario
       } else {
         console.error('Error al enviar el pedido:', response.statusText);
       }
     } catch (error) {
       console.error('Error de red:', error);
     }
-  };
 
-  const cancelarPedido = () => {
-    // Limpiar el carrito y restablecer las variables
     setCarrito([]);
     setTotal(0);
     setNumeroOrden(null);
     setCarritoLocal([]);
-    // Otras acciones que desees realizar al cancelar el pedido
+  };
+
+  const cancelarPedido = () => {
+    setCarrito([]);
+    setTotal(0);
+    setNumeroOrden(null);
+    setCarritoLocal([]);
     console.log('Pedido cancelado');
   };
 
@@ -86,7 +84,7 @@ export const Carrito = ({ carrito, setCarrito }) => {
       <nav className="navbar">
         <div className="center-links">
           <div>
-            <Link to="/perfil">
+            <Link to="/listPedidos">
               <img src={perfil} alt="perfil" className="icon" />
             </Link>
             <Link to="/carrito">

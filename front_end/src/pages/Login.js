@@ -1,26 +1,25 @@
+// Login.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../AuthContext'; // Asegúrate de que la ruta sea correcta
+import { useAuth } from '../AuthContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { login } = useAuth(); // Obtén la función de inicio de sesión desde el contexto
+  const { login } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     if (email.endsWith('@umes.edu.gt') && password) {
       try {
-        const  user  = await login(email, password); // Usa la función de inicio de sesión del contexto
+        const user = await login(email, password);
 
-        // Redirigir a la página de éxito o realizar otras acciones necesarias
         alert('Inicio de sesión exitoso');
         console.log('Usuario autenticado:', user);
         navigate('/home');
       } catch (error) {
-        // Manejar errores durante el inicio de sesión
         console.error('Error durante el inicio de sesión:', error.message);
         alert(error.message);
       }

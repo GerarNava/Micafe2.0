@@ -1,16 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/pageAdmi.css';
 
 const ProductsStock = () => {
-  const [products, setProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
 
-  const handleEdit = (productId) => {
-    // Lógica para editar un producto, por ejemplo, redirigir a una página de edición.
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/api/orders/');
+        const data = await response.json();
+        setOrders(data);
+      } catch (error) {
+        console.error('Error al obtener las órdenes:', error);
+      }
+    };
+
+    fetchOrders();
+  }, []);
+
+  const handleEdit = (orderId) => {
+    // Lógica para editar una orden, por ejemplo, redirigir a una página de edición.
     // Puedes implementar esto según tus necesidades.
   };
 
-  const handleToggleDelivered = (productId) => {
-    // Lógica para marcar o desmarcar un producto como entregado en el servidor.
+  const handleToggleDelivered = (orderId) => {
+    // Lógica para marcar o desmarcar una orden como entregada en el servidor.
     // Puedes implementar esto según tus necesidades.
 
     // Aquí podrías realizar una solicitud PATCH o PUT al servidor para actualizar el campo 'delivered'.
@@ -21,7 +35,7 @@ const ProductsStock = () => {
       <div className="row">
         <Sidebar />
         <Content
-          products={products}
+          orders={orders}
           handleEdit={handleEdit}
           handleToggleDelivered={handleToggleDelivered}
         />
@@ -59,41 +73,49 @@ function Sidebar() {
   );
 }
 
-function Content({ products, handleEdit, handleToggleDelivered }) {
+function Content({ orders, handleEdit, handleToggleDelivered }) {
+  const [usernames, setUsernames] = useState({});
+
+  
+
+  useEffect(() => {
+   
+  }, [orders]);
+
   return (
     <div className="col-md-9 col-lg-10 content">
-      <h1>PRODUCTOS EN STOCK</h1>
+      <h1>ÓRDENES</h1>
       <div className="table-responsive">
         <table className="table">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Precio</th>
+              <th>Número de Orden</th>
+              <th>ID del Usuario</th>
               <th>Descripción</th>
-              <th>Imagen</th>
+              <th>Total a Pagar</th>
               <th>Estado de Entrega</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
-              <tr key={product.id}>
-                <td>{product.product_name}</td>
-                <td>{product.price}</td>
-                <td>{product.description}</td>
-                <td>
-                  <img src={product.image} alt={product.product_name} />
-                </td>
+            {orders.map((order) => (
+              <tr key={order.id}>
+                <td>{order.n_order}</td>
+                <td>{order.user}</td>
+                <td>{order.description}</td>
+                <td>{order.total_price}</td>
                 <td>
                   <input
                     type="checkbox"
-                    checked={product.delivered}
-                    onChange={() => handleToggleDelivered(product.id)}
+                    checked={order.delivered}
+                    onChange={() => handleToggleDelivered(order.id)}
                   />
                 </td>
                 <td>
-                  <button className="btn btn-primary" onClick={() => handleEdit(product.id)}>Editar</button>
-                  {/* Puedes agregar botones para eliminar productos aquí si es necesario */}
+                  <button className="btn btn-primary" onClick={() => handleEdit(order.id)}>
+                    Editar
+                  </button>
+                  {/* Puedes agregar botones para eliminar órdenes aquí si es necesario */}
                 </td>
               </tr>
             ))}

@@ -4,6 +4,7 @@ import './App.css';
 import { AuthProvider } from './AuthContext';
 import Brother from './pages/Brother';
 import { Carrito } from './pages/Carrito';
+import ListPedidos from './pages/ListPedidos';
 import { ListProducts } from './pages/ListProducts';
 import Login from './pages/Login';
 import LoginAdmi from './pages/LoginAdmi';
@@ -17,7 +18,6 @@ import Categoria from './pages/categoria';
 import { Home } from './pages/home';
 import { PageAdmi } from './pages/pageAdmi';
 import ProductEdit from './pages/productEdit';
-
 const App = () => {
   const [carrito, setCarrito] = useState([]);
   
@@ -44,6 +44,7 @@ const App = () => {
           <Route path="/registerAdmi" element={<RegisterAdmi />} />
           <Route path="/productsStock" element={<ProductsStock />} />
           <Route path="/pageAdmi" element={<PageAdmi />} />
+          <Route path="/listPedidos" element={<ListPedidos />} />
           <Route path="/carrito" element={<Carrito carrito={carrito} setCarrito={setCarrito} />} />
           
         </Routes>
