@@ -111,7 +111,7 @@ function Content({ products, handleEdit, handleDelete, fetchProducts }) {
                   <td><img src={product.image} width = {100} alt={product.product_name} /></td>
                   <td>{product.description}</td>
                   <td>
-                    <button className="btn btn-info" onClick={() => handleEdit(product.id)}>Editar</button>
+                    
                     <button className="btn btn-danger" onClick={() => handleDelete(product.id)}>Eliminar</button>
                   </td>
                 </tr>

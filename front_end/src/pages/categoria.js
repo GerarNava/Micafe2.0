@@ -114,7 +114,6 @@ const Categoria = () => {
                 <td>{categoria.category_name}</td>
                 <td>
                   <button onClick={() => handleEliminarCategoria(categoria.id)}>Eliminar</button>
-                  <button onClick={() => handleEditarCategoria(categoria.id)}>Editar</button>
                 </td>
               </tr>
             ))}
