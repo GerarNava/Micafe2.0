@@ -1,0 +1,65 @@
+body {
+  background-color: rgb(241, 248, 183);
+}
+
+.container-with-green-background {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px; /* Agregar espacio entre los elementos del formulario */
+}
+
+.form-control {
+  border: 1px solid rgb(0, 0, 0); /* Remarcar los cuadros de entrada con un borde negro */
+  padding: 10px; /* Agregar un poco de espacio interior */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(0, 0, 0); /* Agregar un borde negro al formulario */
+  padding: 20px; /* Agregar un espacio interior al formulario */
+  border-radius: 10px; /* Agregar bordes redondeados al formulario */
+  max-width: 300px; /* Establecer un ancho máximo para el contenedor */
+  margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+
+.boton_logo {
+  padding: 50;
+  border: none;
+  background: none;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Estilos para la ventana emergente */
+.modal-backdrop.show {
+  opacity: 0.5 !important;
+}
+
+/* Ajustes para el formulario principal y la ventana emergente */
+.content {
+  padding: 5px;
+  position: relative;
+  margin-left: 10rem;
+  z-index: 1;
+}
+
+.modal {
+  z-index: 1000 !important; /* Ajusta este valor según sea necesario */
+}
+
+.sidebar {
+  z-index: 1000; /* Ajusta este valor según sea necesario */
+  position: fixed;
+  padding: 25px; /* Ajusta el ancho del sidebar según tus necesidades */
+  background-color: white; /* Ajusta el color del fondo del sidebar */
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+/* ... (otros estilos para el sidebar) */

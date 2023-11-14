@@ -1,0 +1,37 @@
+/* En products.css o un nuevo archivo CSS */
+
+/* Estilos generales */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  /* Estilos para el encabezado de la tabla */
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilos para las filas alternas */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilos para los botones de acciones */
+  td button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el formulario de agregar categoría */
+  form {
+    margin-top: 20px;
+  }
+  

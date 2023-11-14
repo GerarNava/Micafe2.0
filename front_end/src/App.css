@@ -1,0 +1,80 @@
+
+.App {
+  text-align: center;
+  background-color: rgb(255, 165, 0); /* Naranja */
+}
+
+.boddy {
+  background-color: rgb(255, 165, 0); /* Naranja */
+}
+
+/* ... (resto del código) */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.boton_logo {
+  padding: 50;
+  border: none;
+  background: none;
+  display: block;
+  margin: 0 auto;
+
+}
+
+.container-with-green-background {
+   
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px; /* Agregar espacio entre los elementos del formulario */
+}
+
+.form-control {
+  border: px solid rgb(0, 0, 0); /* Remarcar los cuadros de entrada con un borde verde */
+  padding: 10px; /* Agregar un poco de espacio interior */
+}
+form {
+  display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  border: 2px solid rgb(0, 0, 0); /* Agregar un borde verde al formulario */
+  padding: 20px; /* Agregar un espacio interior al formulario */
+  border-radius: 10px; /* Agregar bordes redondeados al formulario */
+  border-radius: 10px; /* Agregar bordes redondeados al contenedor */
+max-width: 200px; /* Establecer un ancho máximo para el contenedor */
+margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}

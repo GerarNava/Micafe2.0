@@ -1,0 +1,101 @@
+/* Estilos para el navbar */
+.navbar {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  background-color: #ffa91e;
+  padding: 15px;
+  color: white;
+}
+
+/* Estilos para los enlaces y los iconos en el centro */
+.center-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 35px; /* Ajusta el tamaño de las imágenes según tus necesidades */
+  margin: 0 5px; /* Espacio entre los iconos */
+}
+
+.product-details {
+  text-align: center; /* Centra el contenido dentro del contenedor del producto */
+}
+
+.product-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra los elementos a lo largo del eje principal (horizontal) */
+}
+
+.product-item {
+  border: 3px solid #000000;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  box-sizing: border-box;
+  text-align: center; /* Centra el texto dentro del contenedor del producto */
+  transition: background-color 0.3s; /* Agrega una transición para suavizar el cambio de color */
+}
+
+.product-item:hover {
+  background-color: rgb(255, 0, 0); /* Color de fondo atenuado al pasar el ratón sobre el producto */
+}
+
+
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+/* ... (otros estilos) */
+
+.carrito-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.carrito-table th,
+.carrito-table td {
+  border: 1px solid #ddd; /* Borde del recuadro */
+  padding: 8px; /* Espaciado interno */
+  text-align: left;
+}
+
+.carrito-table th {
+  background-color: #f2f2f2; /* Color de fondo para las celdas de encabezado */
+}
+
+.carrito-table td:hover {
+  background-color: #f5f5f5; /* Efecto de resalte al pasar el ratón */
+}
+
+.carrito-total {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.carrito-botones {
+  margin-top: 20px;
+}
+
+.carrito-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carrito-button:hover {
+  background-color: #45a049;
+}
+
+/* ... (otros estilos) */

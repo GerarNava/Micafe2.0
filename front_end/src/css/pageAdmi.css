@@ -1,0 +1,30 @@
+/* Estilos para el sidebar */
+.sidebar {
+    background-color: #333;
+    color: white;
+    padding: 25px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que el sidebar esté por encima del contenido */
+  }
+  
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+  }
+  
+  /* Estilos para el contenido */
+  .content {
+    padding: 5px;
+    margin-left: 10rem; /* Asegura que el contenido se muestre a la derecha del sidebar */
+  }
+  .productos-button {
+    margin-bottom: 20px;
+  }
+  
+  /* Ajusta otros estilos según tus necesidades */
+  

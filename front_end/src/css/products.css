@@ -1,0 +1,26 @@
+#sidebar {
+    background-color: #333;
+    color: white;
+    padding: 20px 20px; /* Espaciado interior del sidebar */
+  }
+  
+  #sidebar .nav-link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Estilos adicionales para personalizar el sidebar según tus preferencias */
+  #sidebar .nav-link:hover,
+  #sidebar .nav-link:focus {
+    background-color: #868b91; /* Color de fondo al pasar el ratón por encima */
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .content .btn:hover,
+  .content .btn:focus {
+    background-color: #868b91; /* Color de fondo al pasar el ratón por encima */
+    color: white;
+    transition: background-color 0.3s;
+  }
+    
